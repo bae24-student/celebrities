@@ -59,6 +59,7 @@ with st.echo(code_location='below'):
     st.dataframe(celeb_info)
 
     st.header("Highest-Paid Celebrities 2005-2020")
+    df_celebs.rename(columns={"Pay (USD millions)": "Earnings"}, inplace=True)
     top_celebs = df_celebs.groupby("Name").agg(earning=("Earnings","sum"),
                       category=("Category","first"),avg_earning=("Earnings","mean")).sort_values("earning",ascending=False)[:16]
     fig, ax = plt.subplots(figsize=(13,7))
