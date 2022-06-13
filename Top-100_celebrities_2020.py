@@ -58,6 +58,15 @@ with st.echo(code_location='below'):
     st.dataframe(celeb_info)
 
     st.header("Highest-Paid Celebrities 2005-2020")
+    top_celebs = df_celebs.groupby("Name").agg(earning=("Earnings","sum"),
+                      category=("Category","first"),avg_earning=("Earnings","mean")).sort_values("earning",ascending=False)[:16]
+    fig, ax = plt.subplots(figsize=(13,7))
+    sns.barplot(data=top_celebs, x="earning", y=top_celebs.index, orient="h")
+    plt.xlabel("Earnings (in USD Millions)")
+    plt.title("Top-15 Highest-Paid Celebrities 2005-2020",fontsize=16)
+    plt.ylabel(None)
+    st.pyplot(fig)
+    
     fig, ax = plt.subplots(figsize=(13, 7))
     sns.barplot(data=df_categories, x="avg(Earnings)", y="Category", orient="h",
                 order=df_categories.sort_values("avg(Earnings)", ascending=False)["Category"], ax=ax)
@@ -65,3 +74,4 @@ with st.echo(code_location='below'):
     plt.xlabel("Earnings (in USD millions)")
     plt.tight_layout()
     st.pyplot(fig)
+   
