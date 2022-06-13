@@ -18,6 +18,7 @@ with st.echo(code_location='below'):
     df_100_celeb = get_data("Top_100_celebrities_2020.csv").set_index("rank")
     df_celeb_states = get_data("Celebrities_and_states.csv")
     df_categories = get_data("Top Celebrities 2015-2020.csv")
+    df_celebs = get_data("https://storage.googleapis.com/kagglesdsdata/datasets/622168/2148774/forbes_celebrity_100.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20220613%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20220613T173354Z&X-Goog-Expires=259199&X-Goog-SignedHeaders=host&X-Goog-Signature=081f50da11f1107eeb7d72c6ffdb965d40d488dcbe462f54f7a6d77d380640b6d5d8ee35d3dd4ec167daf8d4c0b145941f4af23c7771f89cc31127fba81699637448dcaf1b9c7a31976ffe14c80d9c4f78111bd7779b5cff014ba3c4fa1d50993c24d11c20246caa612c23263934b8227633f3fe9d75f9a4a3295ba9ab9f0506463c0d7f40b647df5c17420514a314ee0e149aa778b1fd0fedc9c0e2e6f39dd5fd3c81099aada8556889aaf78b1a02cf34900d3220c6befe7b75f575d5e15c6e81de7dddc088de91eb76d00d776ae3afe70e51d18711d0f9fa7c9683f05128f2841578d5cf1881e4ee447cc1d9bf95c9d89b8ec73ccbd9d64ece85f267dcaede")
     st.dataframe(df_100_celeb[['name', 'earnings']])
 
     with open('us_states.json', encoding='utf-8') as f:
