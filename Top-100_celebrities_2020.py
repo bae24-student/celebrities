@@ -37,7 +37,7 @@ with st.echo(code_location='below'):
     df_geo_celeb = df_geo.merge(df_celeb_states, left_on='name', right_on='state', how='left').fillna(0.0)
     gdf = gpd.GeoDataFrame(df_geo_celeb, geometry='poly')
 
-    st.write("### Number of American Celebrities' Residences")
+    st.write("#### Number of American Celebrities' Residences")
     st.write("Всем известно, что самым значимым символом индустрии кино и развлечений является Голливуд. Именно там, в Калифорнии, располагаются резиденции большей части американсих селебрити, что отлично видно на следующей визуализации.")
     pickup_counts = gdf["name_x"].value_counts()
     fig, ax = plt.subplots(figsize=(10, 10))
@@ -45,6 +45,7 @@ with st.echo(code_location='below'):
         column="pickup_counts", ax=ax, legend=True)
     st.pyplot(fig)
 
+    st.write("Теперь вы можете выбрать любую знаменитость из списка и посмотреть краткую информацию о ней.")
     option = st.selectbox(
         'Choose a celebrity',
         (df_100_celeb.set_index("name").drop(["BTS", "Kiss"]).reset_index()['name']))
@@ -72,6 +73,7 @@ with st.echo(code_location='below'):
     plt.ylabel(None)
     st.pyplot(fig)
     
+    st.write("#### Average Yerly Earnings by Category")
     fig, ax = plt.subplots(figsize=(13, 7))
     sns.barplot(data=df_categories, x="avg(Earnings)", y="Category", orient="h",
                 order=df_categories.sort_values("avg(Earnings)", ascending=False)["Category"], ax=ax)
