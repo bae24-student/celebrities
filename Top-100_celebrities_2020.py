@@ -58,7 +58,7 @@ with st.echo(code_location='below'):
     st.dataframe(celeb_info)
 
     st.header("Highest-Paid Celebrities 2005-2020")
-    fig, ax = plt.figure(figsize=(13, 7))
+    fig, ax = plt.subplots(figsize=(13, 7))
     sns.barplot(data=df_categories, x="avg(Earnings)", y="Category", orient="h",
                 order=df_categories.sort_values("avg(Earnings)", ascending=False)["Category"], ax=ax)
     plt.title("Average Yearly Earnings", fontsize=16)
