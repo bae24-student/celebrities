@@ -73,7 +73,7 @@ with st.echo(code_location='below'):
     plt.ylabel(None)
     st.pyplot(fig)
     
-    st.write("#### Average Yerly Earnings by Category")
+    st.write("#### Average Yaerly Earnings by Category")
     fig, ax = plt.subplots(figsize=(13, 7))
     sns.barplot(data=df_categories, x="avg(Earnings)", y="Category", orient="h",
                 order=df_categories.sort_values("avg(Earnings)", ascending=False)["Category"], ax=ax)
