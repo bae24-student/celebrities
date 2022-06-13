@@ -17,7 +17,7 @@ with st.echo(code_location='below'):
 
     df_100_celeb = get_data("Top_100_celebrities_2020.csv").set_index("rank")
     df_celeb_states = get_data("Celebrities_and_states.csv")
-    df_categories = get_data("Top Celebrities 2015-2020")
+    df_categories = get_data("Top Celebrities 2015-2020.csv")
     st.dataframe(df_100_celeb[['name', 'earnings']])
 
     with open('us_states.json', encoding='utf-8') as f:
